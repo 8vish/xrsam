@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pokemon Infinite Fusion - Calculate Fusion of Two Character</title>
+<meta name="description" content="Best Pokemon Infinite Fusion Calculator. You can use this ultimate Pokémon Fusion Generator to merge two characters and create a new one."/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://pokemon-infinite-fusion.coderobo.org/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Pokemon Infinite Fusion - Calculate Fusion of Two Character" />
+<meta property="og:description" content="Best Pokemon Infinite Fusion Calculator. You can use this ultimate Pokémon Fusion Generator to merge two characters and create a new one." />
+<meta property="og:url" content="https://pokemon-infinite-fusion.coderobo.org/" />
+<meta property="og:site_name" content="Pokemon Infinite Fusion"/>
+<meta property="og:image" content="https://pokemon-infinite-fusion.coderobo.org/pokemon-infinite-fusion.png" />
+  <meta property="og:image:secure_url" content="https://pokemon-infinite-fusion.coderobo.org/pokemon-infinite-fusion.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="628" />
+  <meta property="og:image:alt" content="Pokemon Infinite Fusion" />
+  <meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pokemon Infinite Fusion - Calculate Fusion of Two Character" />
+<meta name="twitter:description" content="Best Pokemon Infinite Fusion Calculator. You can use this ultimate Pokémon Fusion Generator to merge two characters and create a new one." />
+<meta name="twitter:image" content="https://pokemon-infinite-fusion.coderobo.org/pokemon-infinite-fusion.png" />
+<meta name="twitter:label1" content="Time to read" />
+  <meta name="twitter:data1" content="Less than a minute" />
+
+    <link rel="icon" href="https://coderobo.org/wp-content/uploads/2021/10/cropped-CR-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://coderobo.org/wp-content/uploads/2021/10/cropped-CR-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://coderobo.org/wp-content/uploads/2021/10/cropped-CR-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://coderobo.org/wp-content/uploads/2021/10/cropped-CR-270x270.png" />
+
+
+    
+    <link rel="stylesheet" href="poke.css">
+  <!--  <link href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@500;600;700&display=swap" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <img align="center" src="site-logo.svg" width="300" height="100" alt="site-logo">
+    <h1>Pokemon Infinite Fusion</h1>
+    <div id="text">
+        <p>
+            <br><b>
+            Welcome to Pokemon Infinite Fusion Calculator! Our innovative tool serves as the ultimate Pokémon fusion generator.<br><br>Explore Pokemon Infinite Fusions and fuse creatures to see their weakness and power!<br><br>Get ready to embark on an extraordinary adventure with our Pokemon Fusion and create never-before-seen fused marvels!<br><br>Check also our <a href="https://dragon-ball-fusion-generator.coderobo.org/" target="_blank">Dragon Ball Fusion Generator.</a>
+            
+            <br><br><hr color="black"></b>
+            
+        </p>
+        <br>
+		<div class="calculator">
+			<div id="t1" class="inputs">
+				<label for="fname1">First Pokémon:</label>
+				<input list="dlPkmn" type="text" id="fname1" name="fname1" value="" autocomplete="off">
+				<input id="random1" type="button" class="button" value="Random Select" onclick="randomFirstPoke()">
+			</div><br>
+			<div id="t2" class="inputs">
+				<label for="fname2">Second Pokémon:</label>
+				<input list="dlPkmn" type="text" id="fname2" name="fname2" value="" autocomplete="off">
+				<input id="random2" type="button" class="button" value="Random Select" onclick="randomSecondPoke()">
+			</div><br><br>
+		
+			<div class="buttons">
+				<input id="button" type="button" class="button" value="Fuse" onclick="fusePoke()"><br><br>
+                <input id="random" type="button" class="button" value="Choose Random Pokemon" onclick="randomBothPoke()"><br><br>
+                
+			</div>
+			<input id="reset" type="button" class="button" value="Reset & Select Manually" onclick="resetPoke()"><br>
+		</div>
+	</div>
+	<br />
+
+
+    <sector id="stats" class="stats">
+        <div id="L2">
+            <div>
+                <span id="dexnumber1">&nbsp;</span><span id="fusionid1">&nbsp;</span>
+            </div>
+            <img class="picpok" id="pic1" alt="Pockemon 1 Not Selected" src="question.png">
+            <div id="FP1">mon1/mon2</div>
+            <div id="typecont">
+                <img class="pictype" id="p1" alt="Unknown Pockemon" src="types/unknown.png">
+                <img class="pictype" id="p2" style="display:none">
+            </div>
+            <div class="monstats" id="hp1">HP: </div>
+            <div class="monstats" id="atk1">ATK: </div>
+            <div class="monstats" id="def1">DEF: </div>
+            <div class="monstats" id="spatk1">SPE.ATK: </div>
+            <div class="monstats" id="spdef1">SPE.DEF: </div>
+            <div class="monstats" id="spe1">SPEED: </div>
+            <div class="montotal" id="bs1">TOTAL: </div>
+            <div class="monab" id="ab1">ABILITY:</div>
+            <div class="monhab" id="hab1"></div>
+            <br>
+            <div class="monweak" data-default="x4: " id="weak14">x4: </div>
+            <div class="monweak" data-default="x2: " id="weak12">x2: </div>
+            <div class="monweak" data-default="x1: " id="weak11">x1: </div>
+            <div class="monweak" data-default="x0.5: " id="weak105">x0.5: </div>
+            <div class="monweak" data-default="x0.25: " id="weak1025">x0.25: </div>
+            <div class="monweak" data-default="x0: " id="weak100">x0: </div>
+        </div>
+        <div id="R2">
+            <div>
+                <span id="dexnumber2">&nbsp;</span><span id="fusionid2">&nbsp;</span>
+            </div>
+            <img class="picpok" id="pic2" alt="Pockemon 2 Not Selected" src="question.png">
+            <div id="FP2">mon2/mon1</div>
+            <div id="typecont">
+                <img class="pictype" id="p3" alt="Unknown Pockemon" src="types/unknown.png">
+                <img class="pictype" id="p4" style="display:none">
+            </div>
+            <div class="monstats" id="hp2">HP: </div>
+            <div class="monstats" id="atk2">ATK: </div>
+            <div class="monstats" id="def2">DEF: </div>
+            <div class="monstats" id="spatk2">SPE.ATK: </div>
+            <div class="monstats" id="spdef2">SPE.DEF: </div>
+            <div class="monstats" id="spe2">SPEED: </div>
+            <div class="montotal" id="bs2">TOTAL: </div>
+            <div class="monab" id="ab2">ABILITY:</div>
+            <div class="monhab" id="hab2"></div>
+            <br>
+            <div class="monweak" data-default="x4: " id="weak24">x4: </div>
+            <div class="monweak" data-default="x2: " id="weak22">x2: </div>
+            <div class="monweak" data-default="x1: " id="weak21">x1: </div>
+            <div class="monweak" data-default="x0.5: " id="weak205">x0.5: </div>
+            <div class="monweak" data-default="x0.25: " id="weak2025">x0.25: </div>
+            <div class="monweak" data-default="x0: " id="weak200">x0: </div>
+        </div>
+    
+     
+    </sector>
+    <!--<p id="bottom">All rights reserved to Pokémon</p> -->
+    <audio id="fuseSound">
+        <source src="sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</body>
+<script src="t.js"></script>
+<script src="pokenew.js"></script>
+</html>
